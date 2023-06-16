@@ -12,9 +12,9 @@ class PointsCounter extends StatefulWidget {
 }
 
 class _PointsCounterState extends State<PointsCounter> {
-  int TeamAPonts = 0;
+  int TeamAPoints = 0;
 
-  int TeamBPonts = 0;
+  int TeamBPoints = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class _PointsCounterState extends State<PointsCounter> {
                         style: TextStyle(fontSize: 32),
                       ),
                       Text(
-                        "$TeamAPonts",
+                        "$TeamAPoints",
                         style: TextStyle(fontSize: 150),
                       ),
                       ElevatedButton(
@@ -50,7 +50,9 @@ class _PointsCounterState extends State<PointsCounter> {
                           minimumSize: Size(150, 50),
                         ),
                         onPressed: () {
-                          this.TeamAPonts = this.TeamAPonts + 1;
+                          setState(() {
+                            TeamAPoints++;
+                          });
                         },
                         child: Text(
                           "Add 1 Point",
@@ -63,7 +65,9 @@ class _PointsCounterState extends State<PointsCounter> {
                             minimumSize: Size(150, 50),
                           ),
                           onPressed: () {
-                            this.TeamAPonts = this.TeamAPonts + 2;
+                            setState(() {
+                              TeamAPoints += 2;
+                            });
                           },
                           child: Text(
                             "Add 2 Points",
@@ -75,7 +79,9 @@ class _PointsCounterState extends State<PointsCounter> {
                             minimumSize: Size(150, 50),
                           ),
                           onPressed: () {
-                            this.TeamAPonts = this.TeamAPonts + 3;
+                            setState(() {
+                              TeamAPoints += 3;
+                            });
                           },
                           child: Text(
                             "Add 3 Points",
@@ -103,7 +109,7 @@ class _PointsCounterState extends State<PointsCounter> {
                         style: TextStyle(fontSize: 32),
                       ),
                       Text(
-                        "$TeamBPonts",
+                        "$TeamBPoints",
                         style: TextStyle(fontSize: 150),
                       ),
                       ElevatedButton(
@@ -111,7 +117,11 @@ class _PointsCounterState extends State<PointsCounter> {
                           backgroundColor: Colors.orange,
                           minimumSize: Size(150, 50),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            TeamBPoints++;
+                          });
+                        },
                         child: Text(
                           "Add 1 Point",
                           style: TextStyle(fontSize: 18, color: Colors.black),
@@ -122,7 +132,11 @@ class _PointsCounterState extends State<PointsCounter> {
                             backgroundColor: Colors.orange,
                             minimumSize: Size(150, 50),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              TeamBPoints += 2;
+                            });
+                          },
                           child: Text(
                             "Add 2 Points",
                             style: TextStyle(fontSize: 18, color: Colors.black),
@@ -132,7 +146,11 @@ class _PointsCounterState extends State<PointsCounter> {
                             backgroundColor: Colors.orange,
                             minimumSize: Size(150, 50),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              TeamBPoints += 3;
+                            });
+                          },
                           child: Text(
                             "Add 3 Points",
                             style: TextStyle(fontSize: 18, color: Colors.black),
@@ -147,7 +165,12 @@ class _PointsCounterState extends State<PointsCounter> {
                 backgroundColor: Colors.orange,
                 minimumSize: Size(150, 50),
               ),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  TeamBPoints = 0;
+                  TeamAPoints = 0;
+                });
+              },
               child: Text(
                 "Reset",
                 style: TextStyle(fontSize: 18, color: Colors.black),
